@@ -3,7 +3,7 @@ import * as services from '../../redux/services';
 import { toast } from 'react-toastify';
 import { connect } from 'react-redux';
 import { AppState } from '../../redux/reducers/index';
-import { Dispatch } from "redux";
+import { Dispatch } from 'redux';
 import { userActions } from '../../redux/actions/index';
 
 interface Props {
@@ -26,7 +26,7 @@ interface User {
 
 interface State {
     page: number;
-    listUser: User[]
+    listUser: User[];
 }
 
 class Table extends Component<Props, State> {
@@ -35,8 +35,8 @@ class Table extends Component<Props, State> {
 
         this.state = {
             page: 2,
-            listUser: []
-        }
+            listUser: [],
+        };
     }
 
     componentDidMount() {
@@ -50,14 +50,13 @@ class Table extends Component<Props, State> {
         try {
             let response = await services.userServices.getListUser(page);
 
-
             if (response.status !== 200) {
                 toast.error(response.data.message);
                 return false;
             }
 
             this.setState({
-                listUser: response.data.data
+                listUser: response.data.data,
             });
         } catch (error) {
             if (error.data) {
@@ -65,25 +64,25 @@ class Table extends Component<Props, State> {
             }
             console.log(error);
         }
-    }
+    };
 
     renderTableUser = () => {
         const { listUser } = this.state;
         let html: any[] = [];
 
         listUser.map((item, index) => {
-            html.push(
+            return html.push(
                 <tr key={index}>
                     <td>{index + 1}</td>
                     <td>{item.first_name}</td>
                     <td>{item.last_name}</td>
                     <td>{item.email}</td>
-                </tr>
+                </tr>,
             );
         });
 
         return html;
-    }
+    };
 
     render() {
         const { firstName, lastName, email } = this.props.userReducer;
@@ -92,12 +91,12 @@ class Table extends Component<Props, State> {
         return (
             <>
                 <h3>{title}</h3>
-                <div>{firstName} {lastName}</div>
+                <div>
+                    {firstName} {lastName}
+                </div>
                 <div>{email}</div>
                 <table>
-                    <tbody>
-                        {this.renderTableUser()}
-                    </tbody>
+                    <tbody>{this.renderTableUser()}</tbody>
                 </table>
             </>
         );
@@ -105,13 +104,13 @@ class Table extends Component<Props, State> {
 }
 
 const mapStateToProps = (state: AppState) => ({
-    userReducer: state.userReducers
+    userReducer: state.userReducers,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
     updateUser: () => {
         dispatch(userActions.UpdateDataUser());
-    }
+    },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Table);

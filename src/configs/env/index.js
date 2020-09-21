@@ -3,8 +3,8 @@ const app = {
         localhost: 'localhost',
         production: 'production',
         development: 'development',
-        staging: 'staging'
-    }
-}
+        staging: 'staging',
+    },
+};
 
 export default Object.assign(app);

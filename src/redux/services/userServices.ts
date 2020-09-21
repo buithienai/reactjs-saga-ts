@@ -7,7 +7,7 @@ export function getDataUser() {
     options.method = 'GET';
     options.url = configs.urlApi + `users/2`;
     options.headers = {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
     };
 
     return makeRequest(options);
@@ -18,7 +18,7 @@ export function getListUser(page: number) {
     options.method = 'GET';
     options.url = configs.urlApi + `users?page=${page}`;
     options.headers = {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
     };
 
     return makeRequest(options);

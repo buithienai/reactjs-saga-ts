@@ -1,11 +1,10 @@
 import { put, takeEvery } from 'redux-saga/effects';
 import * as types from '../types';
-import * as services from '../services/index'
+import * as services from '../services/index';
 
 export function* getRandomUserName() {
     try {
         let response = yield services.userServices.getDataUser();
-
 
         if (response.status === 200) {
             yield put({
@@ -13,8 +12,8 @@ export function* getRandomUserName() {
                 data: {
                     firstName: response.data.data.first_name,
                     lastName: response.data.data.last_name,
-                    email: response.data.data.email
-                }
+                    email: response.data.data.email,
+                },
             });
         }
     } catch (error) {

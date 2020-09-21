@@ -1,5 +1,3 @@
 import * as userServices from './userServices';
 
-export {
-    userServices
-}
+export { userServices };

@@ -2,7 +2,7 @@ import userReducers from './userReducers';
 import { combineReducers } from 'redux';
 
 const rootReducer = combineReducers({
-    userReducers
+    userReducers,
 });
 
 export type AppState = ReturnType<typeof rootReducer>;

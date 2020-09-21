@@ -4,44 +4,40 @@ import './App.css';
 import User from './components/user';
 
 interface State {
-	title: string;
+    title: string;
 }
 
-interface Props {
-
-}
+interface Props {}
 
 class App extends Component<{}, State> {
-	constructor(props: Props) {
-		super(props);
+    constructor(props: Props) {
+        super(props);
 
-		this.state = {
-			title: 'Bui Thien Ai',
-		};
-	}
+        this.state = {
+            title: 'Bui Thien Ai',
+        };
+    }
 
-	render() {
-		const { title } = this.state;
+    render() {
+        const { title } = this.state;
 
-		return (
-			<div className="App">
-				<header className="App-header">
-					<img src={logo} className="App-logo" alt="logo" />
-					<a
-						className="App-link"
-						href="https://reactjs.org"
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						Learn React
-					</a>
-					<User
-						title={title}
-					/>
-				</header>
-			</div>
-		);
-	}
+        return (
+            <div className="App">
+                <header className="App-header">
+                    <img src={logo} className="App-logo" alt="logo" />
+                    <a
+                        className="App-link"
+                        href="https://reactjs.org"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Learn React
+                    </a>
+                    <User title={title} />
+                </header>
+            </div>
+        );
+    }
 }
 
 export default App;

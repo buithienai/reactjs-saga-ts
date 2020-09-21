@@ -16,4 +16,4 @@ export interface UpdateDataUserSuccess {
     data: object;
 }
 
-export type UserActionTypes = UpdateDataUserSuccess
+export type UserActionTypes = UpdateDataUserSuccess;

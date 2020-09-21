@@ -1,3 +1,3 @@
 export default {
-    urlApi: 'https://reqres.in/api/'
-}
+    urlApi: 'https://reqres.in/api/',
+};
