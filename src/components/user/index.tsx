@@ -5,6 +5,8 @@ import { connect } from 'react-redux';
 import { AppState } from '../../redux/reducers/index';
 import { Dispatch } from 'redux';
 import { userActions } from '../../redux/actions/index';
+import Root from '../commons/Root';
+import { ACTIVE_MENU } from '../../constants';
 
 interface Props {
     title: string;
@@ -89,7 +91,7 @@ class Table extends Component<Props, State> {
         const { title } = this.props;
 
         return (
-            <>
+            <Root active={ACTIVE_MENU.USERS}>
                 <h3>{title}</h3>
                 <div>
                     {firstName} {lastName}
@@ -98,7 +100,7 @@ class Table extends Component<Props, State> {
                 <table>
                     <tbody>{this.renderTableUser()}</tbody>
                 </table>
-            </>
+            </Root>
         );
     }
 }

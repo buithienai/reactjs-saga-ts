@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
+import Home from './components/home';
 import User from './components/user';
 
 interface State {
@@ -22,20 +23,16 @@ class App extends Component<{}, State> {
         const { title } = this.state;
 
         return (
-            <div className="App">
-                <header className="App-header">
-                    <img src={logo} className="App-logo" alt="logo" />
-                    <a
-                        className="App-link"
-                        href="https://reactjs.org"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Learn React
-                    </a>
-                    <User title={title} />
-                </header>
-            </div>
+            <Router>
+                <Switch>
+                    <Route path="/users">
+                        <User title={title} />
+                    </Route>
+                    <Route path="">
+                        <Home />
+                    </Route>
+                </Switch>
+            </Router>
         );
     }
 }
